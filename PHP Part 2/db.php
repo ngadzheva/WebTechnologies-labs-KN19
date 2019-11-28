@@ -14,7 +14,7 @@
     
         $table = "CREATE TABLE students(
             id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-            userID VARCHAR(20),
+            userID INT,
             firstName VARCHAR(30),
             lastName VARCHAR(30),
             fn INT,
@@ -27,8 +27,10 @@
         $email = 'ivan@gmail.com';
         $password = 'pass';
     
-        $insert_user = "INSERT INTO users (username, email, password) VALUES(?, ?, ?)";
+        //$insert_user = "INSERT INTO users (username, email, password) VALUES('$username', '$email', '$password')";
         //$db->exec($insert_user);
+        
+        $insert_user = "INSERT INTO users (username, email, password) VALUES(?, ?, ?)";
         $statement = $db->prepare($insert_user);
         $statement->execute([$username, $email, $password]);
 
